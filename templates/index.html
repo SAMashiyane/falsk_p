@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+ <head>
+
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <Script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></Script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <script  src="myproject_script.js"></script> -->
+     <link href="/static/fontawesome-free-6.0.0-web/css/all.min.css" rel="stylesheet">
+     <title>Detection time of Bruise</title>
+     <link rel="icon" href="/static/image/icon.jpg">
+     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+ </head>
+
+ <body>
+
+        <div class="jumbotron text-center">
+		    <img src="/static/image/AI.jpg" class="img-rounded" alt="1" width="100" height="100">
+            <h1>Determining the time of bruising</h1>
+			<h2> Artificial intelligence </h2>
+            <img src="/static/image/b3.jpg" class="img-rounded" alt="1" width="50" height="50">
+            <p>How to use images?!</p>
+            <a href="/static/image/protocol.png"> <i class="fa fa-camera-retro fa-4x" aria-hidden="true"></i></a>
+        </div>
+
+    <div class="container">
+      <div class="row text-center">
+            <div class="col-sm-4">
+                <img src="/static/image/1.jpg" class="img-rounded" alt="imge 1" width="50%" height="auto">
+                <h2>Incorrect </h2>
+                <i class="fa fa-thumbs-down fa-2x" style="color:red" aria-hidden="true"></i>
+                <p>The image above is incorrect because it also includes areas other than bruises </p>
+
+            </div>
+        <div class="col-sm-4">
+            <img src="/static/image/2.jpg" class="img-rounded" alt="imge 2" width="50%" height="auto">
+              <h2>Correct </h2>
+             <i class="fa fa-check-circle fa-2x" aria-hidden="true"></i>
+             <p>The image contains only bruises </p>
+
+        </div>
+        <div class="col-sm-4">
+            <img src="/static/image/3.jpg" class="img-rounded" alt="imge 3" width="50%" height="auto">
+              <h2>Correct </h2>
+             <i class="fa fa-thumbs-up fa-2x" style="color:blue" aria-hidden="true"></i>
+             <p>The image contains only bruises </p>
+
+        </div>
+
+
+    </div>
+    <div class="row text-center " >
+
+        <form class="col-md-4 col-md-offset-4"   method=post enctype=multipart/form-data>
+
+           <h2 class="h3 mb-3 font-weight-normal">Please upload image</h2>
+
+          <input  type="file" id="image" name = "image"  class="form-control input-lg"  required autofocus>
+          <button class="btn-lg btn-primary btn-block p-4"  type="submit">Predict bruising time</button>
+          {% if image_loc %}
+            <img class="mb-4" src="static/images/{{image_loc}}" alt="" width="256" height="256">
+            <div class="alert alert-danger" role="alert">
+               <h4 class="h3 mb-3 font-weight-normal"> Predict bruising time :{{prediction}}</h4>
+            </div>
+          {% endif %}
+            <br>
+            <br>
+            <i class="fa fa-refresh fa-2x" aria-hidden="true"></i>
+           <a href="{{ url_for('upload_predict') }}"><button type="button" class="btn btn-success btn-rounded p-4" > Refresh </button></a>
+           <br>
+           <br>
+            <div  class="text-center" >
+                       Mohtarami 2022 &copy; <a href="https://samashiyane.github.io/" target="_blank">CV</a>
+                       <p>Special thanks:Jhonatan Tirado BSc | David Mauricio PhD</p>
+            </div>
+         </form>
+
+
+    </div>
+ </div>
+    </div>
+
+
+ </body>
+</html>
